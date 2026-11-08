@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+       body{
+        font-family: 'Times New Roman', Times, serif;
+        background: linear-gradient(to right, #06549d, #508ec8, #aacbea);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        margin: 0;
+        min-height: 100vh;
+       }
+       h1,img{
+        gap: 5px;
+        padding: 5px;
+        margin: 10px;
+       }
+       h1{
+        color: #0e2f4e;
+        text-shadow: 0 0 10px #fff, 0 0 20px #4f8ecc, 0 0 30px #4e7ae3;
+        font-size: 30px;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        gap: 5px;
+        text-underline-offset: 8px;
+        text-decoration: underline;
+        text-decoration-style:solid;
+        text-decoration-thickness:2px ;
+        white-space: nowrap;
+         margin: 0;
+       }
+       form{
+         margin-top: 40px;
+         justify-content: center;
+       }
+       .todoItem{
+         display: flex;
+         gap: 10px;
+         justify-content: center;
+       }
+       .icon{
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        width: max-content;
+        
+       }
+       img{
+        height: 50px;
+        width: 55px;
+        margin: 0px;
+       }
+       #inputTodo{
+        width: 250px;
+        height: 30px;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 1px solid #0e2f4e;
+        outline: #06549d;
+        box-shadow:0 0 10px #aacbea;
+       }
+       .addbtn{
+        background-color: #ecf5fd;
+        color: #0e2f4e;
+        padding: 10px;
+        font-size: 20px;
+        border: 1px solid #0e2f4e;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 95px;
+        height: 70px;
+       }
+       section div{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+       }
+       .todo-list-element span {
+        flex: 1;
+        padding: 12px;
+        background-color: #ecf5fd;
+        border: 1px solid #0e2f4e;
+        border-radius: 10px;
+       }
+       .todo-list-element {
+        width: 85%;
+        margin: auto;
+        }
+        .todo-list-element button {
+        background-color: #ecf5fd;
+        border: 1px solid #0e2f4e;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        }
+        .todo-list-element img {
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        padding: 0;
+        }
+        .backimg {
+        background: url("background.png") no-repeat center;
+        background-size: 108% 108%;
+        width: 600px;
+        min-height: 750px;
+        padding: 100px 60px 50px;
+        box-sizing: border-box;
+        }
+        .backimg {
+          position: relative;
+          box-sizing: border-box;
+        }
+        .icon {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+    .backimg {
+        width: 95%;
+        min-height: 700px;
+        padding: 100px 35px 40px;
+        background-size: 100% 100%;
+    }
+
+    #inputTodo {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .todo-list-element {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .backimg {
+        width: 92%;
+        max-width: 450px;
+        min-height: 580px;
+        padding: 130px 75px 45px;
+        background-size: 105% 105%;
+        box-sizing: border-box;
+    }
+    .icon {
+        top: 28px;
+        left: 51%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+    }
+    .icon img {
+        width: 32px;
+        height: 32px;
+        margin: 0%;
+    }
+    h1 {
+        font-size: 20px;
+        letter-spacing: 0px;
+        word-spacing: 0px;
+        text-shadow: none;
+    }
+    form {
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+    .todoItem {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    #inputTodo {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        height: 40px;
+        padding: 0 12px;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+    .addbtn {
+        width: 55px;
+        height: 40px;
+        padding: 0;
+        font-size: 15px;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+    .todo-list-element {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .todo-list-element span {
+        font-size: 14px;
+        padding: 8px 10px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+    .todo-list-element button {
+        padding: 6px;
+    }
+    .todo-list-element img {
+        width: 20px;
+        height: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="backimg">
+    <div class="icon">
+        <img src="smiley todo.png" alt="Todo-Icon">
+        <h1>My Todo list</h1></div>
+    <form>
+        <div class="todoItem">
+            <input type="text" id="inputTodo" placeholder="Enter Your Todo">
+            <button class="addbtn" type="button">Add</button>
+        </div>
+        <section class="todo-list-element"></section>
+    </form>
+    </div>
+    <script>
+        const inputValue = document.getElementById('inputTodo');
+        const addButton = document.querySelector('.addbtn');
+        const todoList = document.querySelector(".todo-list-element");
+
+        
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+        function showTodo(task){
+             let todoDiv = document.createElement('div');
+             todoList.appendChild(todoDiv);
+
+            
+             let span = document.createElement('span');
+             span.textContent = task;
+             todoDiv.appendChild(span);
+
+             let delbtn = document.createElement('button');
+             let imgbtn = document.createElement('img');
+             imgbtn.setAttribute("src","opnbin.png");
+            
+             delbtn.appendChild(imgbtn);
+             todoDiv.appendChild(delbtn);
+             delbtn.addEventListener("click", function(){
+             let index = todos.indexOf(task);
+             todos.splice(index, 1);
+             localStorage.setItem('todos', JSON.stringify(todos));
+             todoDiv.remove();
+        });
+    };
+
+        addButton.addEventListener("click", function(){
+            
+             let myText = inputValue.value.trim();
+            console.log(myText);
+            inputValue.value = "";
+            inputValue.focus();
+            console.log(inputValue.value);
+            if (myText.trim() === "") {
+            console.log("Please enter a task");
+            } 
+            else {
+           
+            todos.push(myText);
+            localStorage.setItem('todos',JSON.stringify(todos));
+            showTodo(myText);
+            console.log("Valid task");
+             };
+            });
+            todos.forEach(function(task) {
+            showTodo(task);
+           });
+
+           inputValue.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                addButton.click();
+            }
+            });
+    </script>
+</body>
+</html>
